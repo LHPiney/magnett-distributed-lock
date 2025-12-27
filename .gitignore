@@ -1,0 +1,12 @@
+﻿.env
+.cursor/
+.idea/
+.vscode/
+/bin/
+/obj/
+**/bin/
+**/obj/
+.env.local
+**/appsettings.Development.json
+**/appsettings.Production.json
+**/secrets.json

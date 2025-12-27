@@ -1,0 +1,21 @@
+{
+  "Credentials": {
+    "Postgres": {
+      "User": "dev",
+      "Password": "devpass"
+    },
+    "RabbitMQ": {
+      "User": "dev",
+      "Password": "devpass"
+    },
+    "Keycloak": {
+      "Admin": "admin",
+      "AdminPassword": "admin123"
+    }
+  },
+  "Keycloak": {
+    "Realm": "locks",
+    "ClientId": "portal"
+  }
+}
+

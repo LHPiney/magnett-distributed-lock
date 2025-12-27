@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+option csharp_namespace = "Locks.Api";
+
+package locks;
+
+service LockService {
+  rpc Ping(PingRequest) returns (PingReply);
+  rpc TryAcquire(TryAcquireRequest) returns (TryAcquireReply);
+  rpc Release(ReleaseRequest) returns (ReleaseReply);
+  rpc Renew(RenewRequest) returns (RenewReply);
+}
+
+message PingRequest {
+  string message = 1;
+}
+
+message PingReply {
+  string message = 1;
+}
+
+message TryAcquireRequest {
+  string tenant_id = 1;
+  string environment = 2;
+  string namespace = 3;
+  string resource_id = 4;
+  int64 ttl_seconds = 5;
+  string request_id = 6;
+}
+
+message TryAcquireReply {
+  oneof result {
+    LockHandle handle = 1;
+    Error error = 2;
+  }
+}
+
+message ReleaseRequest {
+  LockHandle handle = 1;
+}
+
+message ReleaseReply {
+  oneof result {
+    Success success = 1;
+    Error error = 2;
+  }
+}
+
+message RenewRequest {
+  LockHandle handle = 1;
+  int64 ttl_seconds = 2;
+}
+
+message RenewReply {
+  oneof result {
+    LockHandle handle = 1;
+    Error error = 2;
+  }
+}
+
+message LockHandle {
+  string tenant_id = 1;
+  string environment = 2;
+  string namespace = 3;
+  string resource_id = 4;
+  string lock_id = 5;
+  string owner_id = 6;
+  int64 expires_at_unix = 7;
+  int64 acquired_at_unix = 8;
+}
+
+message Error {
+  string code = 1;
+  string message = 2;
+}
+
+message Success {
+  bool ok = 1;
+}
+
