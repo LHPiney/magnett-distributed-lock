@@ -1,0 +1,13 @@
+.settings {
+  padding: 2rem;
+}
+
+.settings h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.settings p {
+  color: #666;
+}
+

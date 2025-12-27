@@ -1,0 +1,14 @@
+<header class="header" role="banner">
+  <div class="header-content">
+    <h1 class="header-title">Management Portal</h1>
+    <nav class="header-nav" aria-label="Main navigation">
+      @if (isAuthenticated()) {
+        <div class="user-info">
+          <span>{{ userProfile()?.name || 'User' }}</span>
+          <button type="button" (click)="logout()" aria-label="Logout">Logout</button>
+        </div>
+      }
+    </nav>
+  </div>
+</header>
+

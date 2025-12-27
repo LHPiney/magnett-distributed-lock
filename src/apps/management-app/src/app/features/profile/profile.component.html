@@ -1,0 +1,12 @@
+<div class="profile">
+  <h1>Profile</h1>
+  @if (userProfile()) {
+    <div class="profile-info">
+      <p><strong>Name:</strong> {{ userProfile()?.name }}</p>
+      <p><strong>Email:</strong> {{ userProfile()?.email }}</p>
+    </div>
+  } @else {
+    <p>Loading profile...</p>
+  }
+</div>
+

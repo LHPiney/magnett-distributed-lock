@@ -1,0 +1,21 @@
+<aside class="sidebar" role="complementary" aria-label="Sidebar navigation">
+  <nav class="sidebar-nav">
+    <ul class="sidebar-menu">
+      @for (item of menuItems; track item.path) {
+        <li>
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: false }"
+            class="sidebar-link"
+            [aria-current]="item.path"
+          >
+            <span class="sidebar-icon">{{ item.icon }}</span>
+            <span class="sidebar-label">{{ item.label }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</aside>
+

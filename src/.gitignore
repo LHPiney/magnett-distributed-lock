@@ -1,0 +1,7 @@
+﻿.env
+.cursor/
+/bin/
+/obj/
+**/bin/
+**/obj/
+.env.local
